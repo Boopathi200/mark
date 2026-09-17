@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markfex Solutions - Digital Marketing & Web Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0066ff;
+            --primary-dark: #0052cc;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            background: var(--bg-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+        }
+
+        /* ========== CONTAINER & LAYOUT ========== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section {
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            padding: 80px var(--spacing-lg) 60px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-dark);
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 102, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 24px;
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .hero-label::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            padding: 16px 32px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-visual {
+            background: rgba(0, 102, 255, 0.05);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-visual {
+                min-height: 250px;
+            }
+        }
+
+        /* ========== ACHIEVEMENT SECTION ========== */
+        .achievement-section {
+            background: var(--bg-white);
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .achievement-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .achievement-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .achievement-label {
+            font-size: 14px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1024px) {
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        .services-section {
+            background: var(--bg-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .service-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-section {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .about-divider {
+            width: 64px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: var(--spacing-md) 0;
+        }
+
+        .about-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-card p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .about-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: var(--spacing-sm);
+            background: rgba(0, 102, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .badge-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== PROJECTS SECTION ========== */
+        .projects-section {
+            background: var(--bg-white);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .project-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 350px;
+            border-radius: 12px;
+            margin: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .project-content {
+            padding: var(--spacing-lg);
+        }
+
+        .project-label {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .project-content h3 {
+            font-size: 28px;
+            margin: var(--spacing-md) 0;
+            color: var(--text-dark);
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .project-reverse {
+            direction: rtl;
+        }
+
+        .project-reverse > * {
+            direction: ltr;
+        }
+
+        @media (max-width: 768px) {
+            .project-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                margin: 0;
+            }
+
+            .project-content {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        /* ========== PROCESS SECTION ========== */
+        .process-section {
+            background: var(--bg-light);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .process-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .process-card h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .process-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .process-divider {
+            height: 2px;
+            background: var(--border-color);
+            margin-top: var(--spacing-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-divider {
+                display: none;
+            }
+        }
+
+        /* ========== TEAM SECTION ========== */
+        .team-section {
+            background: var(--bg-white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s;
+            padding: var(--spacing-lg);
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-card h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+        }
+
+        .team-role {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .team-bio {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== REVIEWS SECTION ========== */
+        .reviews-section {
+            background: var(--bg-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .review-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: var(--spacing-md);
+            font-size: 16px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .reviewer-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .reviewer-info p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== CTA BANNER SECTION ========== */
+        .cta-banner {
+            background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+            color: white;
+            margin: var(--spacing-xl) var(--spacing-lg);
+            padding: var(--spacing-xl);
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-banner h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-banner h3 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .cta-banner p {
+            font-size: 16px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .cta-banner-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .cta-banner {
+                margin: var(--spacing-lg) var(--spacing-lg);
+                padding: var(--spacing-lg);
+            }
+
+            .cta-banner h2 {
+                font-size: 32px;
+            }
+
+            .cta-banner h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-section {
+            background: var(--bg-white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .contact-form {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            display: none;
+            font-size: 14px;
+        }
+
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            display: block;
+        }
+
+        .contact-info {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-brand h2 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Markfex Solutions</a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-label">Digital Solutions</span>
+                <h1>Build Your Digital Presence. Grow Your Business.</h1>
+                <p>We combine creative thinking, technology and marketing to create digital solutions that support your business goals and drive measurable results.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Start Your Project</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card" style="padding: 20px; text-align: center; max-width: 300px;">
+                    <div style="font-size: 48px; margin-bottom: 12px;">📊</div>
+                    <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Digital Growth</p>
+                    <p style="color: var(--text-light); font-size: 13px;">Accelerate your online presence with proven strategies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENT SECTION -->
+    <section class="section achievement-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Proven Execution</span>
+                <h2 class="section-title">We Turn Ideas Into Digital Solutions</h2>
+                <p class="section-subtitle">Every project starts with a business goal. Our job is to understand it, build the right digital solution, and help you take the next step.</p>
+            </div>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number">10+</div>
+                    <div class="achievement-label">Digital Solutions</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">2+</div>
+                    <div class="achievement-label">Completed Projects</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">5+</div>
+                    <div class="achievement-label">Digital Services</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">100%</div>
+                    <div class="achievement-label">Commitment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Services</span>
+                <h2 class="section-title">Everything You Need to Grow Online.</h2>
+                <p class="section-subtitle">From your first website to ongoing digital marketing, we help bring the important pieces of your online presence together.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Website Development</h3>
+                    <p>Modern, responsive websites designed around your business and your customers. High performance, search-ready codebases built to convert.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategies that help your brand reach the right audience and build meaningful visibility across key social and search channels.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Content Creation</h3>
+                    <p>Content that communicates your brand clearly, consistently and creatively. Punchy copywriting, product stories, and editorial assets.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Video Editing</h3>
+                    <p>Engaging videos designed for social media, marketing campaigns and digital platforms. Dynamic pacing, color finishing, and motion audio.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Google Business Setup</h3>
+                    <p>Build a stronger presence on Google and make it easier for customers to find your business with complete profile optimization and local search rank.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Branding & Design</h3>
+                    <p>Visual experiences that give your business a clear and professional identity. Typography systems, color architecture, and brand guidelines.</p>
+                    <a href="#contact" class="service-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-label">Why Markfex</span>
+                    <h2>Your Business Has a Story. We Help You Tell It Online.</h2>
+                    <div class="about-divider"></div>
+                    <p>Digital growth isn't just about being online. It's about creating a presence that people understand, trust and remember. At Markfex Solutions, we combine creative thinking, technology and marketing to create digital solutions that support real business goals.</p>
+                    <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 20px;">Get Started →</a>
+                </div>
+                <div class="about-card">
+                    <p>Digital growth isn't just about being online. It's about creating a presence that people understand, trust and remember. At Markfex Solutions, we combine creative thinking, technology and marketing to create digital solutions that support real business goals.</p>
+                    <div class="about-badges">
+                        <div class="badge">
+                            <div class="badge-icon">✓</div>
+                            <span>Strategic Thinking</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-icon">✓</div>
+                            <span>Creative Solutions</span>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-icon">✓</div>
+                            <span>Technical Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Selected Work</span>
+                <h2 class="section-title">Work That Speaks for Us.</h2>
+                <p class="section-subtitle">Real projects, real results. Each engagement demonstrates our commitment to delivering strategic digital solutions.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-inner">
+                    <div class="project-image">📱 Oorupro Application</div>
+                    <div class="project-content">
+                        <span class="project-label">Project 01</span>
+                        <h3>Oorupro Application</h3>
+                        <p>A digital application project where we worked on marketing and design to create a better digital presence and user experience.</p>
+                        <div class="project-tags">
+                            <span class="tag">Marketing</span>
+                            <span class="tag">Digital Design</span>
+                            <span class="tag">Branding Support</span>
+                        </div>
+                        <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 16px;">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-reverse">
+                <div class="project-inner">
+                    <div class="project-content">
+                        <span class="project-label">Project 02</span>
+                        <h3>Medron Healthcare System</h3>
+                        <p>We designed a professional website for Medron Healthcare System with a focus on presenting their services clearly and creating a trustworthy online presence.</p>
+                        <div class="project-tags">
+                            <span class="tag">Website Design</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Responsive Development</span>
+                        </div>
+                        <a href="#contact" class="btn-primary" style="display: inline-block; margin-top: 16px;">View Case Study →</a>
+                    </div>
+                    <div class="project-image">🏥 Medron Healthcare</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How We Work</span>
+                <h2 class="section-title">From Idea to Digital Reality.</h2>
+                <p class="section-subtitle">A structured 4-stage engineering framework that removes ambiguity and accelerates launch timelines.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Discover</h3>
+                    <p>We understand your business, audience and goals through research and stakeholder intake.</p>
+                    <div class="process-divider"></div>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Plan</h3>
+                    <p>We define the right strategy, technical structure and creative direction before building.</p>
+                    <div class="process-divider"></div>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Create</h3>
+                    <p>We design, develop and produce the digital experience with rigorous quality checks.</p>
+                    <div class="process-divider"></div>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Grow</h3>
+                    <p>We help you improve your presence, analyze analytics and move towards business goals.</p>
+                    <div class="process-divider"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Team</span>
+                <h2 class="section-title">Creative Minds. Technical Skills. One Team.</h2>
+                <p class="section-subtitle">Good digital work comes from understanding the business behind the project.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <div class="team-role">Founder & Strategist</div>
+                    <h3>Team Lead</h3>
+                    <p class="team-bio">Strategic thinker with 10+ years in digital transformation. Leads our vision for innovative solutions.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💻</div>
+                    <div class="team-role">Web Developer</div>
+                    <h3>Lead Developer</h3>
+                    <p class="team-bio">Full-stack specialist building scalable, performant digital experiences with cutting-edge technologies.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="GitHub">gh</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍🎨</div>
+                    <div class="team-role">Creative Designer</div>
+                    <h3>Design Director</h3>
+                    <p class="team-bio">Visual storyteller creating beautiful, intuitive interfaces that users love to experience.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Dribbble">db</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <div class="team-role">Marketing Specialist</div>
+                    <h3>Growth Lead</h3>
+                    <p class="team-bio">Growth-minded strategist driving digital campaigns and marketing initiatives that deliver results.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Client Feedback</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real feedback from teams that partnered with Markfex Solutions to elevate their presence.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Markfex Solutions understood what we needed and helped us turn our ideas into a professional digital presence that truly represents our brand."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👤</div>
+                        <div class="reviewer-info">
+                            <h4>Client Name</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The team was supportive throughout the project and paid attention to the details that mattered to us. Highly recommended!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">👥</div>
+                        <div class="reviewer-info">
+                            <h4>Another Client</h4>
+                            <p>Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+        <div class="cta-banner-content">
+            <h2>Have a Project in Mind?</h2>
+            <h3>Let's Build Something That Moves Your Business Forward.</h3>
+            <p>Whether you're starting from scratch or looking to elevate your existing digital presence, we're ready to help.</p>
+            <div class="cta-banner-buttons">
+                <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView()">Start Project</button>
+                <button class="btn-outline-white">Schedule Call</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's Discuss Your Project</h2>
+                <p class="section-subtitle">Send us a message or schedule a direct consultation with our solutions team in Tamil Nadu.</p>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div id="formMessage" class="form-message"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="name@domain.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message →</button>
+                </form>
+
+                <div class="contact-info">
+                    <span class="contact-label">Direct Connect</span>
+                    <h3>Prefer to Talk Directly?</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <p>Email</p>
+                            <a href="mailto:hello@markfex.io">hello@markfex.io</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <p>Phone</p>
+                            <a href="tel:+91">+91 (Contact for number)</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <p>Location</p>
+                            <p>Tamil Nadu Innovation Corridor<br>Supporting growing brands across India & global markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Markfex Solutions</h2>
+                <p>Digital ideas. Better presence. Business growth. We combine creative thinking, technology and marketing to create digital solutions that support real business goals.</p>
+                <div class="footer-social">
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Facebook">👍</a>
+                    <a href="#" title="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Website Development</a></li>
+                    <li><a href="#services">Digital Marketing</a></li>
+                    <li><a href="#services">Content Creation</a></li>
+                    <li><a href="#services">Video Editing</a></li>
+                    <li><a href="#services">Google Business Setup</a></li>
+                    <li><a href="#services">Branding & Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:hello@markfex.io">Email Us</a></li>
+                    <li><a href="#contact">Schedule Call</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Markfex Solutions. All rights reserved.</p>
+            <p>Designed & developed with precision</p>
+        </div>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFyMthbycOuY0s1gbB8bwwEr46bFMERgn0xSVVMLq70_DIu-vccNAcZFac-n8q_U9Zeg/exec";
+
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // Validation
+            if (!name) {
+                showMessage('Please enter your name', 'error');
+                return;
+            }
+
+            if (!email || !isValidEmail(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+
+            try {
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('phone', phone);
+
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+
+                // Since mode is no-cors, we can't read the response directly
+                // We'll assume success after a short delay
+                setTimeout(() => {
+                    showMessage('Thank you! Your details have been submitted successfully.', 'success');
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message →';
+                }, 500);
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Something went wrong. Please try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message →';
+            }
+        });
+
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            if (type === 'success') {
+                setTimeout(() => {
+                    formMessage.className = 'form-message';
+                }, 5000);
+            }
+        }
+
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
